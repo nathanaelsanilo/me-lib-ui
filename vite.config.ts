@@ -1,30 +1,10 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import * as path from "node:path";
-// import dts from "vite-plugin-dts";
-// import typescript2 from "rollup-plugin-typescript2";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    // dts({
-    //   insertTypesEntry: true,
-    // }),
-    // typescript2({
-    //   check: false,
-    //   include: ["src/components/**/*.vue"],
-    //   tsconfigOverride: {
-    //     compilerOptions: {
-    //       outDir: "dist",
-    //       sourceMap: true,
-    //       declaration: true,
-    //       declarationMap: true,
-    //     },
-    //   },
-    //   exclude: ["vite.config.ts"],
-    // }),
-  ],
+  plugins: [vue()],
   build: {
     cssCodeSplit: true,
     lib: {
@@ -38,9 +18,9 @@ export default defineConfig({
       output: {
         preserveModules: true,
         exports: "named",
-        // globals: {
-        //   vue: "Vue",
-        // },
+        globals: {
+          vue: "Vue",
+        },
       },
     },
   },

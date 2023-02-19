@@ -1,5 +1,6 @@
 import type { App } from "vue";
 import * as components from "./components";
+import "./style.css";
 
 const componentsList = components?.default as any;
 const MeLibUi = {
