@@ -1,5 +1,13 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import type { App } from "vue";
+import * as components from "./components";
 
-createApp(App).mount('#app')
+const componentsList = components?.default as any;
+const MeLibUi = {
+  install(Vue: App) {
+    Object.keys(componentsList).forEach((name) => {
+      Vue.component(name, componentsList[name]);
+    });
+  },
+};
+
+export default MeLibUi;
